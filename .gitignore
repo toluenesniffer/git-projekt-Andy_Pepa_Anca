@@ -11,6 +11,21 @@
 *.sln.docstates
 *.env
 
+# Node.js
+node_modules/
+
+# Mac OS
+.DS_Store
+
+# Build / distribuce
+dist/
+
+# VS Code
+.vscode/
+
+# Log soubory
+*.log
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
