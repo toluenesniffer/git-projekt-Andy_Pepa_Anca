@@ -2,7 +2,7 @@
 Malý git projekt
 Popis projektu: Jednoduchá webová stránka 
 Autoři: Andrea Semančinová, Anna Spieglová, Josef Šubrt
-Návod k použití: Používá se jako každá jiná webová stránka.
+Návod k použití: Používá se jako každá jiná webová stránka. Stáhněte si html a hoďte na hosting nebo localhost.
 Rozdělení úkolů: Pepa - programátor, Andy - tester/bug fixer, Anča - grafik
 Ukázka: document.querySelectorAll('a[href^="#"]').forEach(a=>{
             a.addEventListener('click', e=>{
