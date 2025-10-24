@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Superwebovka</title>
+    <meta name="description" content="Jednoduchá, osobní a přirozeně vypadající webová stránka — ručně navržený layout, jemné animace a příjemná typografie." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg: #f0f7f9;
+            --card: #ffffff;
+            --accent: #2596be;
+            --muted: #607d8b;
+            --glass: rgba(255,255,255,0.7);
+            --max: 1100px;
+            color-scheme: light;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            background:
+                radial-gradient(1200px 600px at 5% 10%, rgba(37,150,190,0.08), transparent 8%),
+                radial-gradient(1000px 400px at 95% 90%, rgba(0,119,182,0.06), transparent 12%),
+                var(--bg);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            color:#20343a;
+            line-height:1.45;
+            padding:48px 20px;
+        }
+
+        .wrap{max-width:var(--max);margin:0 auto}
+
+        /* Header */
+        header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:20px;
+            margin-bottom:28px;
+        }
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            text-decoration:none;
+            color:inherit;
+        }
+        .logo{
+            width:56px;height:56px;border-radius:14px;
+            background:linear-gradient(135deg,var(--accent),#64b5f6);
+            display:grid;place-items:center;color:white;font-weight:700;
+            box-shadow:0 6px 20px rgba(37,150,190,0.18);
+            font-family:Merriweather, serif;
+            transform:rotate(-6deg);
+        }
+        nav{display:flex;gap:14px;align-items:center}
+        nav a{
+            color:var(--muted);
+            text-decoration:none;
+            padding:8px 12px;border-radius:8px;font-weight:600;
+        }
+        nav a:hover{background:var(--glass);color:#123}
+
+        /* Hero */
+        .hero{
+            display:grid;
+            grid-template-columns: 1fr 420px;
+            gap:28px;
+            align-items:center;
+            margin-bottom:36px;
+        }
+        .card{
+            background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--card));
+            padding:28px;border-radius:18px;
+            box-shadow:0 10px 40px rgba(16,30,36,0.06);
+            border:1px solid rgba(16,30,36,0.03);
+        }
+        h1{font-family:Merriweather, serif;margin:0 0 8px;font-size:32px}
+        p.lead{margin:0;color:var(--muted);font-weight:500}
+        .cta{display:inline-block;margin-top:18px;padding:12px 18px;border-radius:12px;background:var(--accent);color:white;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(37,150,190,0.18);}
+
+        /* side info */
+        .side{
+            display:flex;flex-direction:column;gap:12px;
+        }
+        .meta{
+            background:linear-gradient(180deg,#fff,rgba(255,255,255,0.96));
+            padding:12px;border-radius:12px;font-size:14px;color:var(--muted);
+            box-shadow:inset 0 -1px 0 rgba(0,0,0,0.02);
+        }
+        .stat{display:flex;justify-content:space-between;align-items:center}
+        .big{font-weight:700;color:#14282b;font-size:20px}
+
+        /* features */
+        .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+        .feature{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.85), #fff);box-shadow:0 6px 22px rgba(16,30,36,0.04);border:1px solid rgba(16,30,36,0.03)}
+        .feature h3{margin:0 0 8px;font-size:16px}
+        .feature p{margin:0;color:var(--muted);font-size:14px}
+
+        /* gallery */
+        .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:36px}
+        .tile{position:relative;padding-top:72%;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#f7efe9,#fff);box-shadow:0 8px 30px rgba(16,30,36,0.05)}
+        .tile > div{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;color:rgba(16,30,36,0.12);font-size:28px}
+
+        /* contact */
+        .contact{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+        form{display:flex;flex-direction:column;gap:12px}
+        input[type="text"],input[type="email"],textarea{
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 2px solid #e3f2fd;
+            background: #ffffff;
+            font-size: 15px;
+            color: #37474f;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus,input[type="email"]:focus,textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37,150,190,0.1);
+        }
+        input::placeholder, textarea::placeholder {
+            color: #90a4ae;
+        }
+        button[type="submit"]{
+            padding: 14px;
+            border-radius: 12px;
+            border: 0;
+            background: linear-gradient(to right, #2596be, #0288d1);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button[type="submit"]:hover {
+            transform: translateY(-1px);
+        }
+        footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center}
+
+        /* responsive */
+        @media (max-width:980px){
+            .hero{grid-template-columns:1fr;gap:18px}
+            .features{grid-template-columns:repeat(2,1fr)}
+            .gallery{grid-template-columns:repeat(2,1fr)}
+            .contact{grid-template-columns:1fr}
+        }
+        @media (max-width:520px){
+            .features{grid-template-columns:1fr}
+            .gallery{grid-template-columns:1fr}
+        }
+
+        /* small decorative hand-drawn accent */
+        .hand{
+            display:inline-block;font-family:Merriweather, serif;color:var(--accent);
+            transform:rotate(-6deg);font-size:18px;margin-left:8px;
+        }
+
+        /* simple reveal animation */
+        .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease, transform .5s ease}
+        .reveal.show{opacity:1;transform:none}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <a class="brand" href="#">
+                <div class="logo">V</div>
+                <div>
+                    <div style="font-weight:700">Velrybka</div>
+                    <div style="font-size:12px;color:var(--muted)">komfort pro velké ploutvičky</div>
+                </div>
+            </a>
+            <nav>
+                <a href="#features">Proč ponožky?</a>
+                <a href="#gal">Kolekce</a>
+                <a href="#kontakt">Objednávka</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="card reveal" id="intro">
+                    <h1>Ponožky pro velryby<span class="hand">♥</span></h1>
+                    <p class="lead">První ponožky navržené speciálně pro velryby. Udržují teplotu, chrání před solí a vypadají skvěle na každé ploutvi.</p>
+                    <a class="cta" href="#kontakt">Objednat ponožky</a>
+
+                    <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+                        <div style="padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,#fff,#fffefb);box-shadow:0 6px 20px rgba(16,30,36,0.04);font-size:13px">Vodotěsné</div>
+                        <div style="padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,#fff,#fffefb);box-shadow:0 6px 20px rgba(16,30,36,0.04);font-size:13px">Teplé</div>
+                        <div style="padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,#fff,#fffefb);box-shadow:0 6px 20px rgba(16,30,36,0.04);font-size:13px">Stylové</div>
+                    </div>
+                </div>
+
+                <aside class="side reveal" id="side">
+                    <div class="meta">
+                        <div style="font-size:13px;color:var(--muted)">Spokojených velryb</div>
+                        <div class="stat" style="margin-top:8px">
+                            <div>
+                                <div class="big">42</div>
+                                <div style="font-size:12px;color:var(--muted)">velryb v ponožkách</div>
+                            </div>
+                            <div style="text-align:right">
+                                <div class="big">4.9</div>
+                                <div style="font-size:12px;color:var(--muted)">hvězdiček z 5</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="meta" style="display:flex;flex-direction:column;gap:8px">
+                        <strong style="font-size:14px">Expresní dodání</strong>
+                        <div style="font-size:14px">do všech oceánů</div>
+                        <div style="font-size:12px;color:var(--muted)">Doručíme do 3 dnů lodí</div>
+                    </div>
+                </aside>
+            </section>
+
+            <section id="features" class="features reveal">
+                <div class="feature">
+                    <h3>Extra velké velikosti</h3>
+                    <p>Speciálně navrženo pro velrybí ploutve. Od velikosti XL až po XXXXXXXXXXXL.</p>
+                </div>
+                <div class="feature">
+                    <h3>Vodotěsný materiál</h3>
+                    <p>Unikátní směs bavlny a mořských řas. 100% voděodolné, soluvzdorné.</p>
+                </div>
+                <div class="feature">
+                    <h3>Termo regulace</h3>
+                    <p>Udržují optimální teplotu ve všech hloubkách od 0 do 3000 metrů.</p>
+                </div>
+            </section>
+
+            <section id="gal" class="gallery reveal">
+                <div class="tile"><div>🧦 Modré</div></div>
+                <div class="tile"><div>🧦 Pruhované</div></div>
+                <div class="tile"><div>🧦 S puntíky</div></div>
+                <div class="tile"><div>🧦 Duhové</div></div>
+            </section>
+
+            <section id="kontakt" class="contact reveal">
+                <form id="form">
+                    <div class="card">
+                        <h3 style="margin:0 0 8px">Objednat ponožky</h3>
+                        <p style="margin:0 0 12px;color:var(--muted)">Napište nám druh velryby pro správnou velikost.</p>
+                        <input type="text" id="name" placeholder="Jméno velryby" required>
+                        <input type="email" id="email" placeholder="E-mail majitele" required>
+                        <textarea id="msg" rows="5" placeholder="Druh velryby a požadovaný vzor" required></textarea>
+                        <button type="submit">Objednat</button>
+                        <div id="sent" style="display:none;margin-top:12px;color:green">Děkujeme! Vaše velryba brzy dostane své ponožky.</div>
+                    </div>
+                </form>
+
+                <aside>
+                    <div class="card">
+                        <strong>Proč ponožky?</strong>
+                        <p style="margin-top:8px;color:var(--muted)">Protože i velryby si zaslouží mít teplé a stylové nožičky. A navíc jsou naše ponožky skutečně roztomilé!</p>
+                        <div style="margin-top:12px;font-size:13px;color:var(--muted)">Dostupné pro všechny druhy velryb, včetně kosticových.</div>
+                    </div>
+                </aside>
+            </section>
+
+            <footer class="reveal">
+               
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // jednoduché odhalení při scrollu
+        const reveals = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((items) => {
+            items.forEach(i => {
+                if(i.isIntersecting) i.target.classList.add('show');
+            });
+        }, {threshold:0.12});
+        reveals.forEach(r => obs.observe(r));
+
+        // fiktivní odeslání formuláře (frontend-only)
+        const form = document.getElementById('form');
+        form.addEventListener('submit', e=>{
+            e.preventDefault();
+            document.getElementById('sent').style.display = 'block';
+            form.reset();
+            // simulace: schovej potvrzení po chvíli
+            setTimeout(()=>document.getElementById('sent').style.display='none', 3500);
+        });
+
+        // drobná kontrola pro přirozenější interakce
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+            a.addEventListener('click', e=>{
+                const id = a.getAttribute('href').slice(1);
+                const el = document.getElementById(id);
+                if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+            })
+        });
+    </script>
+</body>
+</html>
